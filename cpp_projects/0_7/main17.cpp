@@ -2,7 +2,7 @@
 
 using namespace std;
 
-
+//inheritance
 class Shape{
     public:
         double area = 0;
