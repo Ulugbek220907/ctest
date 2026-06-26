@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-//Static member and functions
+//OOP
 using namespace std;
 
 class Car {
