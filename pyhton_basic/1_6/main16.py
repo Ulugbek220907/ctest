@@ -1,4 +1,4 @@
-#match case statement  
+#match case statement  => it is like switch statement in other languages.
 
 def days(day):
     match day:
