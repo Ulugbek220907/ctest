@@ -1,35 +1,62 @@
-#expense tracker program
-expenses = {
-    "Transportation": 0,
-    "Food": 0,
-    "Entertainment": 0
-}
+#OOP
+#class and constructor
 
-def print_expenses():
-    print("==================\nExpense Categories:")
-    for category in expenses:
-        print("=>" + category + ": $" + str(expenses[category]))
+class Car:
+    #class variable. accesible by all objects of the class
+    x = 10
 
-print_expenses()
-category = input("Enter the expense category(1-3, quit(4)): ")
-expense = int(input("Enter the expense amount: "))
+    #constructor
+    def __init__(self, name, model, year):
+        self.name = name
+        self.model = model
+        self.year = year
 
-while category != "4":
-    match category:
-        case "1":
-            expenses["Transportation"] += expense
-        case "2":
-            expenses["Food"] += expense
-        case "3":
-            expenses["Entertainment"] += expense
-        case "4":
-            print("Exiting the program...")
-            break
-        case _:
-            print("Invalid category. Please enter a valid category.")
-            category = input("Enter the expense category(1-3, quit(4)): ")
-            continue
-    print_expenses()
-    category = input("Enter the expense category(1-3, quit(4)): ")
-    expense = int(input("Enter the expense amount: "))
-    
+    #method to display car information
+    def display_info(self):
+        print(f"Car Name: {self.name}")
+        print(f"Model: {self.model}")
+        print(f"Year: {self.year}")
+
+#object creation
+car1 = Car("Toyota", "Camry", 2020)
+car1.display_info()
+
+
+#inheritance: class that allows a class to inherit properties and methods from another class
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        pass
+
+class Dog(Animal):
+    #Dog class inherits from Animal class
+
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    #Cat class inherits from Animal class
+
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+    def speak(self):
+        return "Meow!"
+
+class Cow(Animal):
+    #Cow class inherits from Animal class
+
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def speak(self):
+        return "Moo!"
