@@ -1,5 +1,6 @@
 #OOP
 #class and constructor
+#polymorphosm and inheritance
 
 class Car:
     #class variable. accesible by all objects of the class
@@ -35,7 +36,7 @@ class Dog(Animal):
     #Dog class inherits from Animal class
 
     def __init__(self, name, breed):
-        self.name = name
+        super().__init__(name) #super() is used to call the constructor of the parent class
         self.breed = breed
 
     def speak(self):
@@ -45,7 +46,8 @@ class Cat(Animal):
     #Cat class inherits from Animal class
 
     def __init__(self, name, color):
-        self.name = name
+        #polymorphism: same method name but different implementation in different classes
+        super().__init__(name)
         self.color = color
 
     def speak(self):
@@ -55,8 +57,18 @@ class Cow(Animal):
     #Cow class inherits from Animal class
 
     def __init__(self, name, breed):
-        self.name = name
+        super().__init__(name)
         self.breed = breed
 
     def speak(self):
         return "Moo!"
+
+#object creation
+dog = Dog("Buddy", "Golden Retriever")
+cat = Cat("Whiskers", "Tabby")
+cow = Cow("Bessie", "Holstein")
+
+#displaying information
+print(f"{dog.name} says {dog.speak()}")
+print(f"{cat.name} says {cat.speak()}")
+print(f"{cow.name} says {cow.speak()}")
