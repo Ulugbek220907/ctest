@@ -2,7 +2,7 @@ def mA(height):
     max_wat = 0
     first = 0
     last = len(height) - 1
-
+    
     while first < last:
         max_wat = max(max_wat, min(height[first], height[last]) * (last - first))
         if height[first] < height[last]:
