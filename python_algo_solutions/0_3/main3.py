@@ -1,13 +1,18 @@
+#given two arrays, finding the median of merged array
+def medianarray(arr1, arr2):
+    arr = arr1 + arr2
+    arr.sort()
+    
+    print(arr)
+    n = len(arr)
+    if n % 2 == 0:
+        median = float(arr[n//2 - 1] + arr[n//2])
+        median /= float(2)
+    else:
+        median = float(arr[n // 2])
+    return median
 
-def lns(s):
-    possible_substrings = set()
-    for i in range(len(s)):
-        for j in range(i + 1, len(s) + 1):
-            substring = s[i:j]
-            if len(substring) == len(set(substring)):
-                possible_substrings.add(substring)
-    return max(possible_substrings, key=len) if possible_substrings else ""
+a = 2
+print(float(a))
 
-
-
-print(lns("abcabcbb"))
+print(medianarray([1, 2, 3, 5], [3, 4, 6, 7]))
