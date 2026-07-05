@@ -47,6 +47,13 @@ class LinkedList:
         print(a)
 
     def delete(self, value):
+        if self.head is None: #if list is empty
+            return
+        
+        if self.head.data == value: #if the head node is to be deleted
+            self.head = self.head.next #head will point to the next node
+            return
+    
         current = self.head
 
         while current.next: #loop will run until the last node
