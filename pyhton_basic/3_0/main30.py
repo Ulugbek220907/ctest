@@ -53,7 +53,7 @@ class LinkedList:
         if self.head.data == value: #if the head node is to be deleted
             self.head = self.head.next #head will point to the next node
             return
-    
+        
         current = self.head
 
         while current.next: #loop will run until the last node
