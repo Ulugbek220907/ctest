@@ -27,7 +27,11 @@ public class main7{
         System.out.println("Value of Euler's number: " + eular);
         System.out.println("Result of raising result1 to the power of 2: " + result1);
 
+        System.out.print("Enter your number: ");
+        double number = scanner.nextDouble();
 
+        //find square root of the number
+        System.out.println("You entered: " + Math.sqrt(number));
 
         scanner.close();
     }
