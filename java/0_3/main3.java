@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class main3{
     
@@ -24,5 +24,6 @@ public class main3{
 
 
         System.out.print("=> " + z);
+
     }
 }
