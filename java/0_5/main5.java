@@ -17,5 +17,7 @@ public class main5{
         } else {
             System.out.println("You are a senior citizen.");
         }
+
+        scanner.close();
     }
 }
