@@ -51,7 +51,7 @@ class LinkedList:
         while current: #current is used for traveling to the end if the list complexity is O(n)
             a += 1
             current = current.next
-        print(a)
+        return a
 
     def delete(self, value):
         if self.head is None: #if list is empty
@@ -59,8 +59,9 @@ class LinkedList:
         
         if self.head.data == value: #if the head node is to be deleted
             self.head = self.head.next #head will point to the next node
+            self.head.prev = None
             return
-        
+            
         current = self.head
 
         while current.next: #loop will run until the last node
@@ -68,7 +69,12 @@ class LinkedList:
                 #current.next will point to the next node of the node to be deleted
 
                 #assining the next of the current node to the next of the node to be deleted
-                current.next = current.next.next 
+                current.next = current.next.next
+                if current.next: #if the next node is not None
+                    current.next.prev = current #the previous of the next node will point to the current node
+
+                
+                
                 #returning from the function after deleting the node
                 return
             
@@ -115,6 +121,56 @@ class LinkedList:
 
     def clear(self):
         self.head = None
+    
+    def swap(self, num):
+        #swaps element with previous node data
+        current = self.head
+
+        while current:
+            if current.data == num and current.data != self.head.data:
+                current.data = current.prev.data
+                current.prev.data = num
+            current = current.next
+    
+    def bublesort(self):
+        if self.head == None:
+            return
+        
+        current = self.head
+        while current:
+            next_node = current.next
+            while next_node:
+                if current.data > next_node.data:
+                    current.data, next_node.data = next_node.data, current.data
+                next_node = next_node.next
+
+            current = current.next 
+    
+    def insert(self, before, data):
+        current = self.head
+        new_node = Node(data)
+
+        while current:
+            if current.data == before:
+                new_node.prev = current
+                new_node.next = current.next
+                current.next = new_node
+                current.prev = new_node
+            current = current.next
+
+    def merge(self, list1, list2):
+        current = list1.head
+        current2 = list2.head
+
+        while current:
+            if current.next == None:
+                while current2:
+                    list1.append(current2.data)
+                    current2 = current2.next
+            current = current.next
+        list2.clear()
+        list1.bublesort()
+        return list1
 
     def display(self):
         current = self.head
@@ -123,24 +179,29 @@ class LinkedList:
             current = current.next
         print("None")
 
-    
-
-
-my_list = LinkedList()
+my_list, my_list2 = LinkedList(), LinkedList()
 my_list.append(10)
 my_list.append(20)
 my_list.append(30)
 my_list.append(40)
 my_list.append(50)
-my_list.prepend(5)
+my_list.append(60)
+my_list.append(70)
+my_list.append(80)
+my_list.append(90)
+my_list.append(100)
 
-my_list.display()
-my_list.reverse()
-my_list.display()
-print("Middle element:", my_list.find_middle())
+my_list2.append(11)
+my_list2.append(21)
+my_list2.append(31)
+my_list2.append(41)
+my_list2.append(51)
+my_list2.append(61)
+my_list2.append(71)
+my_list2.append(81)
+my_list2.append(91)
+my_list2.append(111)
 
-print(my_list.check(10))
-my_list.clear()
-my_list.display()
-my_list.append(23)
+my_list = my_list.merge(my_list, my_list2)
+
 my_list.display()
