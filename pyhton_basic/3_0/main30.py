@@ -102,6 +102,19 @@ class LinkedList:
             fast = fast.next.next
         
         return slow.data if slow else None
+    
+
+    def check(self, number):
+        current = self.head
+        a = False
+        while current:
+            if current.data == number:
+                return True
+            current = current.next
+        return a
+
+    def clear(self):
+        self.head = None
 
     def display(self):
         current = self.head
@@ -109,6 +122,7 @@ class LinkedList:
             print(current.data, end=" -> ")
             current = current.next
         print("None")
+
     
 
 
@@ -124,3 +138,9 @@ my_list.display()
 my_list.reverse()
 my_list.display()
 print("Middle element:", my_list.find_middle())
+
+print(my_list.check(10))
+my_list.clear()
+my_list.display()
+my_list.append(23)
+my_list.display()
