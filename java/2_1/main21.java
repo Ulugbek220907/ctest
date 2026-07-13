@@ -9,7 +9,7 @@ public class main21{
             writer.write("Hello, World!");
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
-            System.out.println("An error occurred");
+            System.out.println("An error occurred while writing to the file.");
         }
     }
 }
