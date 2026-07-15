@@ -4,3 +4,5 @@ class Treenode:
         self.left = None
         self.right = None
 
+class BinaryTree:
+    pass
