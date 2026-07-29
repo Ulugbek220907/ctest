@@ -1,14 +1,14 @@
 import pandas as pd
-import numpy as np
 
 
 data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
-    'Department': ['Tech', 'Sales', None, 'HR'],          # Charlie is missing a department
-    'Salary': [85000, None, 78000, 69000],                # Bob is missing salary
-    'Join_Date': ['2020-01-15', '2021-03-22', '2019-11-05', '2022-07-01']
+    'Age': [28, 34, 22, 31],
+    'Department': ['Tech', 'Sales', 'Tech', 'HR'],
+    'Salary': [85000, 62000, 78000, 69000]
 }
-
 df = pd.DataFrame(data)
-print(df)
 
+print(df.loc[:, ('Salary', 'Age')])
+list = df[df['Age'] < 30]
+print(list)
